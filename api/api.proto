@@ -1,0 +1,27 @@
+syntax = "proto3";
+package api;
+
+message PingMessage {
+  string greeting = 1;
+}
+
+message AddUserRequest {
+    string email = 1;
+    string firstName = 2;
+    string lastName = 3;
+}
+
+
+message User {
+    string id = 1;
+    string email = 2;
+    string firstName = 3;
+    string lastName = 4;
+    string createdAt = 5;
+}
+
+service Ping {
+  rpc SayHello(PingMessage) returns (PingMessage) {}
+  rpc AddUser(AddUserRequest) returns (User){}
+}
+
